@@ -1,20 +1,176 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>GoalRush | The Beautiful Game</title>
-  <style>
-    :root{--bg:#06101a;--panel:#0e2232;--ink:#f7fbff;--muted:#9bb3c4;--cyan:#25e0dc;--pink:#ff427f;--line:#22445a}*{box-sizing:border-box;scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Arial,sans-serif}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.14;background-image:linear-gradient(135deg,#fff1 25%,transparent 25%),linear-gradient(315deg,#fff1 25%,transparent 25%);background-size:42px 42px}.wrap{max-width:1180px;margin:auto;padding-left:7%;padding-right:7%}nav{align-items:center;background:#06101ae8;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;padding-bottom:18px;padding-top:18px;position:sticky;top:0;z-index:5;backdrop-filter:blur(14px)}.logo{color:var(--cyan);font-weight:900;letter-spacing:3px}nav a{color:var(--muted);margin-left:20px;text-decoration:none;font-size:.9rem}nav a:hover{color:var(--cyan);text-shadow:0 0 12px var(--cyan)}.hero{align-items:center;display:grid;gap:40px;grid-template-columns:1.3fr .7fr;min-height:650px;padding-bottom:90px;padding-top:100px}.eyebrow,.label{color:var(--pink);font-weight:bold;letter-spacing:3px;text-transform:uppercase;font-size:.78rem}h1{color:var(--cyan);font-size:clamp(3.4rem,9vw,8.5rem);line-height:.86;margin:18px 0;text-shadow:4px 4px 0 var(--pink);animation:glitch 3s infinite}@keyframes glitch{0%,88%,100%{transform:none}90%{transform:skew(-5deg);text-shadow:-5px 0 var(--pink),5px 0 #fff}93%{transform:translate(4px)}}.hero p{color:var(--muted);font-size:1.15rem;max-width:620px}.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.btn{border:1px solid var(--cyan);border-radius:4px;color:var(--cyan);display:inline-block;padding:12px 20px;text-decoration:none;transition:.25s}.btn.primary{background:var(--cyan);color:#06101a;font-weight:bold}.btn:hover{box-shadow:0 8px 0 var(--pink);transform:translateY(-5px) rotate(-1deg)}.ball{align-items:center;border:1px solid var(--cyan);border-radius:50%;box-shadow:0 0 60px #25e0dc44;display:flex;font-size:7rem;height:260px;justify-content:center;margin:auto;width:260px;animation:float 4s ease-in-out infinite}@keyframes float{50%{transform:translateY(-16px) rotate(5deg)}}section{padding-bottom:75px;padding-top:75px}.section-head{align-items:end;display:flex;justify-content:space-between;gap:20px;margin-bottom:28px}h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.05;margin:12px 0}.section-head p{color:var(--muted);max-width:520px}.scoreboard{background:var(--line);border:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);gap:1px}.score{background:var(--panel);padding:25px;text-align:center}.score strong{color:var(--cyan);display:block;font-size:2.5rem}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(145deg,#132e43,#0a1927);border:1px solid var(--line);border-radius:12px;padding:26px;transition:.3s}.card:hover{border-color:var(--pink);box-shadow:0 18px 35px #0008;transform:translateY(-9px)}.card h3{margin-top:0;font-size:1.35rem}.card p,.muted{color:var(--muted)}.number{color:var(--pink);font-size:2.5rem;font-weight:bold}.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{border-top:3px solid var(--pink);padding-top:18px}.step b{color:var(--cyan);font-size:1.4rem}footer{border-top:1px solid var(--line);color:var(--muted);display:flex;justify-content:space-between;gap:12px;padding:34px 7%;flex-wrap:wrap}footer a{color:var(--cyan)}@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:70px}.ball{height:190px;width:190px}.grid,.timeline{grid-template-columns:1fr 1fr}.scoreboard{grid-template-columns:1fr 1fr}nav{align-items:flex-start;flex-direction:column;gap:10px}nav a{margin:0 12px 0 0}}@media(max-width:520px){.grid,.timeline{grid-template-columns:1fr}.section-head{display:block}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GoalRush | The Beautiful Game</title>
+<style>
+:root{--bg:#06101a;--panel:#0e2232;--ink:#f7fbff;--muted:#9bb3c4;--cyan:#25e0dc;--pink:#ff427f;--line:#22445a}
+
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Arial,sans-serif}
+
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.14;background-image:linear-gradient(135deg,#fff1 25%,transparent 25%),linear-gradient(315deg,#fff1 25%,transparent 25%);background-size:42px 42px}
+
+nav{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:18px 7%;background:#06101ae8;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.logo{font-weight:900;letter-spacing:3px;color:var(--cyan)}
+nav a{margin-left:20px;color:var(--muted);text-decoration:none;font-size:.92rem}
+nav a:hover{color:var(--cyan);text-shadow:0 0 12px var(--cyan)}
+
+.hero{max-width:1180px;margin:auto;padding:100px 7% 90px;display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center;min-height:650px}
+.eyebrow,.label{color:var(--pink);font-weight:bold;letter-spacing:3px;text-transform:uppercase;font-size:.78rem}
+h1{font-size:clamp(3.4rem,9vw,8.5rem);line-height:.86;margin:18px 0;color:var(--cyan);text-shadow:4px 4px 0 var(--pink);animation:glitch 3s infinite}
+h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.05;margin:12px 0}
+.hero p{max-width:620px;color:var(--muted);font-size:1.15rem}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-block;padding:12px 20px;border:1px solid var(--cyan);border-radius:4px;color:var(--cyan);text-decoration:none;transition:.25s}
+.btn.primary{background:var(--cyan);color:#06101a;font-weight:bold}
+.btn:hover{transform:translateY(-5px) rotate(-1deg);box-shadow:0 8px 0 var(--pink)}
+
+.ball{width:260px;height:260px;margin:auto;border:1px solid var(--cyan);border-radius:50%;display:grid;place-items:center;box-shadow:0 0 60px #25e0dc44;animation:float 4s ease-in-out infinite}
+.ball span{font-size:7rem;filter:drop-shadow(0 0 18px var(--pink))}
+@keyframes float{50%{transform:translateY(-16px) rotate(5deg)}
+}
+@keyframes glitch{0%,88%,100%{transform:none}
+90%{transform:skew(-5deg);text-shadow:-5px 0 var(--pink),5px 0 #fff}
+93%{transform:translate(4px)}
+}
+
+section{max-width:1180px;margin:auto;padding:75px 7%}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+.section-head p{max-width:520px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:linear-gradient(145deg,#132e43,#0a1927);border:1px solid var(--line);padding:26px;border-radius:12px;transition:.3s}
+.card:hover{transform:translateY(-9px);border-color:var(--pink);box-shadow:0 18px 35px #0008}
+.card h3{margin-top:0;font-size:1.35rem}
+.card p,.muted{color:var(--muted)}
+.number{font-size:2.5rem;color:var(--pink);font-weight:bold}
+.scoreboard{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.score{background:var(--panel);padding:25px;text-align:center}
+.score strong{display:block;color:var(--cyan);font-size:2.5rem}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step{border-top:3px solid var(--pink);padding-top:18px}
+.step b{color:var(--cyan);font-size:1.4rem}
+footer{border-top:1px solid var(--line);padding:34px 7%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted)}
+footer a{color:var(--cyan)}
+
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:70px}
+.ball{width:190px;height:190px}
+.grid,.timeline{grid-template-columns:1fr 1fr}
+.scoreboard{grid-template-columns:1fr 1fr}
+nav{align-items:flex-start;gap:10px;flex-direction:column}
+nav a{margin:0 12px 0 0}
+}
+@media(max-width:520px){.grid,.timeline{grid-template-columns:1fr}
+.section-head{display:block}
+}
+
+</style>
 </head>
 <body>
-  <nav class="wrap"><div class="logo">GOALRUSH</div><div><a href="#story">Story</a><a href="#champions">Champions</a><a href="#culture">Culture</a><a href="#arabic">العربية</a></div></nav>
-  <header class="wrap hero"><div><div class="eyebrow">One game · a billion hearts</div><h1>FEEL THE<br>FOOTBALL.</h1><p>Football is where pressure becomes poetry, where a single touch can unite a stadium, and where every generation finds its own hero.</p><div class="actions"><a class="btn primary" href="#champions">Explore the legends</a><a class="btn" target="_blank" href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026">World Cup 2026 ↗</a></div></div><div class="ball">⚽</div></header>
-  <section class="wrap" id="story"><div class="section-head"><div><div class="label">The beautiful game</div><h2>More than ninety minutes.</h2></div><p>From a street kickabout to a final under the brightest lights, football turns moments into memories and strangers into one team.</p></div><div class="scoreboard"><div class="score"><strong>200+</strong>countries playing</div><div class="score"><strong>3.5B</strong>fans worldwide</div><div class="score"><strong>90</strong>minutes of drama</div><div class="score"><strong>1</strong>shared language</div></div></section>
-  <section class="wrap" id="champions"><div class="label">Legends & leaders</div><h2>Champions who changed the game.</h2><div class="grid"><article class="card"><div class="number">01</div><h3>Pelé</h3><p>Joy, imagination, and three World Cups. A forever icon who made the impossible feel natural.</p></article><article class="card"><div class="number">02</div><h3>The great nights</h3><p>Finals are built for brave decisions, late goals, and the silence that comes before history.</p></article><article class="card"><div class="number">03</div><h3>The next generation</h3><p>New voices, new skills, and a future waiting for its first whistle.</p></article></div></section>
-  <section class="wrap" id="culture"><div class="label">A global culture</div><h2>Four ways football brings us together.</h2><div class="timeline"><div class="step"><b>01 · Play</b><p class="muted">Every great story begins with a ball and an open space.</p></div><div class="step"><b>02 · Belong</b><p class="muted">Colors, chants, and rituals turn fans into family.</p></div><div class="step"><b>03 · Believe</b><p class="muted">Underdogs remind us that a game is never decided early.</p></div><div class="step"><b>04 · Celebrate</b><p class="muted">The final whistle leaves memories worth sharing.</p></div></div></section>
-  <section class="wrap" id="fans"><div class="card"><div class="label">For every fan</div><h2>Bring your colors.</h2><p class="muted">Wear the shirt, learn the stories, and invite someone new to watch. The best part of football is that there is always room for one more fan.</p><a class="btn primary" href="#story">Back to the pitch ↑</a></div></section>
-  <section class="wrap" id="arabic" dir="rtl"><div class="label">للجماهير العربية</div><h2>كرة القدم تجمعنا.</h2><p class="muted">من الملاعب الصغيرة إلى أكبر البطولات، الشغف بكرة القدم لغة يفهمها الجميع. انضم إلى ملايين المشجعين واحتفل باللعبة الجميلة.</p></section>
-  <footer><span>Made with love for the beautiful game.</span><a target="_blank" href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026">Explore FIFA World Cup 2026 ↗</a></footer>
+<nav>
+<div class="logo">GOALRUSH</div>
+<div>
+<a href="#story">Story</a>
+<a href="#champions">Champions</a>
+<a href="#culture">Culture</a>
+<a href="#fans">Fans</a>
+<a href="#arabic">العربية</a>
+</div>
+</nav>
+<header class="hero">
+<div>
+<div class="eyebrow">One game · a billion hearts</div>
+<h1>FEEL THE<br>FOOTBALL.</h1>
+<p>Football is where pressure becomes poetry, where a single touch can unite a stadium, and where every generation finds its own hero.</p>
+<div class="actions">
+<a class="btn primary" href="#champions">Explore the legends</a>
+<a class="btn" target="_blank" href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026">World Cup 2026 ↗</a>
+</div>
+</div>
+<div class="ball">
+<span>⚽</span>
+</div>
+</header>
+<section id="story">
+<div class="section-head">
+<div>
+<div class="label">The beautiful game</div>
+<h2>More than ninety minutes.</h2>
+</div>
+<p>From a street kickabout to a final under the brightest lights, football turns moments into memories and strangers into one team.</p>
+</div>
+<div class="scoreboard">
+<div class="score">
+<strong>200+</strong>countries playing</div>
+<div class="score">
+<strong>3.5B</strong>fans worldwide</div>
+<div class="score">
+<strong>90</strong>minutes of drama</div>
+<div class="score">
+<strong>1</strong>shared language</div>
+</div>
+</section>
+<section id="champions">
+<div class="label">Legends & leaders</div>
+<h2>Champions who changed the game.</h2>
+<div class="grid">
+<article class="card">
+<div class="number">01</div>
+<h3>Pelé</h3>
+<p>Joy, imagination, and three World Cups. A forever icon who made the impossible feel natural.</p>
+</article>
+<article class="card">
+<div class="number">02</div>
+<h3>The great nights</h3>
+<p>Finals are built for brave decisions, late goals, and the kind of silence that comes before history.</p>
+</article>
+<article class="card">
+<div class="number">03</div>
+<h3>The next generation</h3>
+<p>New voices, new skills, and a future waiting for its first whistle. The story is always moving.</p>
+</article>
+</div>
+</section>
+<section id="culture">
+<div class="label">A global culture</div>
+<h2>Four ways football brings us together.</h2>
+<div class="timeline">
+<div class="step">
+<b>01 · Play</b>
+<p class="muted">Every great story begins with a ball and an open space.</p>
+</div>
+<div class="step">
+<b>02 · Belong</b>
+<p class="muted">Colors, chants, and rituals turn fans into family.</p>
+</div>
+<div class="step">
+<b>03 · Believe</b>
+<p class="muted">Underdogs remind us that a game is never decided early.</p>
+</div>
+<div class="step">
+<b>04 · Celebrate</b>
+<p class="muted">The final whistle leaves memories worth sharing.</p>
+</div>
+</div>
+</section>
+<section id="fans">
+<div class="card">
+<div class="label">For every fan</div>
+<h2>Bring your colors.</h2>
+<p class="muted">Wear the shirt, learn the stories, and invite someone new to watch. The best part of football is that there is always room for one more fan.</p>
+<a class="btn primary" href="#top">Back to the pitch ↑</a>
+</div>
+</section>
+<section id="arabic" dir="rtl">
+<div class="label">للجماهير العربية</div>
+<h2>كرة القدم تجمعنا.</h2>
+<p class="muted">من الملاعب الصغيرة إلى أكبر البطولات، الشغف بكرة القدم لغة يفهمها الجميع. انضم إلى ملايين المشجعين واحتفل باللعبة الجميلة.</p>
+</section>
+<footer>
+<span>Made with love for the beautiful game.</span>
+<a target="_blank" href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026">Explore FIFA World Cup 2026 ↗</a>
+</footer>
 </body>
 </html>
+
